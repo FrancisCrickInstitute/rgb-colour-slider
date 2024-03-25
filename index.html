@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>RGB Color Slider Tool</title>
+    <title>RGB Colour Slider Tool</title>
     <style type="text/css">
       #drawing {
         border: 2px solid black;
@@ -32,9 +32,7 @@
         max-width:650px;
       }
     </style>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
@@ -46,11 +44,11 @@
         return s;
       }
 
-      function colorChange(event, ui) {
-        var r = $("#red").slider("value");
-        var g = $("#green").slider("value");
-        var b = $("#blue").slider("value");
-        $("#color").text("red:" + r + " green:" + g + " blue:" + b);
+      function colorChange() {
+        var r = parseInt(document.getElementById('red').value)
+        var g = parseInt(document.getElementById('green').value)
+        var b = parseInt(document.getElementById('blue').value)
+        $("#color").text("red: " + r + " green: " + g + " blue: " + b);
         doDraw(hex(r), hex(g), hex(b));
         
       }
@@ -84,10 +82,9 @@
       }
 
       $(document).ready(function() {
-        console.log("hello?")
-        initSlider("#red");
-        initSlider("#green");
-        initSlider("#blue");
+        document.getElementById("red").oninput = colorChange
+        document.getElementById("green").oninput = colorChange
+        document.getElementById("blue").oninput = colorChange
       })
     </script>
   </head>
@@ -96,11 +93,10 @@
 
 <h1>RGB Color Slider Tool</h1>
 
-<!-- standards based: <input id=red class=slider type="range" name="points" min="0" max="255" oninput="f()" onchange="f()">  -->
 <table>
   <tr>
     <td>&nbsp;</td>
-    <td><small>No Color &rarr;&rarr; Dark &rarr;&rarr; Brighter &rarr;&rarr; Full Saturation</small></td>
+    <td><small>No Color &rarr; Dark &rarr; Brighter &rarr; Full Saturation</small></td>
     <td colspan="2">&nbsp;</td>
   </tr>
   <tr>
@@ -111,9 +107,15 @@
     </td>
     <td valign="top">
       <div id="controls">
-        <div class="slider" id="red"></div>
-        <div class="slider" id="green"></div>
-        <div class="slider" id="blue"></div>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="255" value="0" class="slider" id="red">
+        </div>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="255" value="0" class="slider" id="green">
+        </div>
+        <div class="slidecontainer">
+          <input type="range" min="0" max="255" value="0" class="slider" id="blue">
+        </div>
         <div id="color">red:0 green:0 blue:0</div>
       </div>
     </td>
