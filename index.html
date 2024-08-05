@@ -121,29 +121,29 @@
       function handleButtonClick(event) {
         const preset = event.target.dataset.preset;
         switch (preset) {
-          case 'preset-red':
-            updateSliders(255, 0, 0);
-            break;
-          case 'preset-blue':
-            updateSliders(0, 0, 255);
-            break;
-          case 'preset-green':
-            updateSliders(0, 255, 0);
-            break;
-          case 'preset-black':
-            updateSliders(0, 0, 0);
-            break;
-          case 'preset-purple':
-            updateSliders(255, 0, 255);
-            break;
           case 'preset-yellow':
             updateSliders(255, 255, 0);
             break;
-          case 'preset-turquoise':
+          case 'preset-cyan':
             updateSliders(0, 255, 255);
             break;
+          case 'preset-magenta':
+            updateSliders(255, 0, 255);
+            break;
+          case 'preset-white':
+            updateSliders(255, 255, 255);
+            break;
+          case 'preset-purple':
+            updateSliders(100, 0, 150);
+            break;
+          case 'preset-pink':
+            updateSliders(232, 163, 213);
+            break;
+          case 'preset-turquoise':
+            updateSliders(0, 150, 150);
+            break;
           case 'preset-orange':
-            updateSliders(255, 200, 0);
+            updateSliders(255, 150, 0);
             break;
           default:
             break;
@@ -219,18 +219,18 @@
     The sliders control the saturation levels of each colour component, ranging from 0 (none) to 255 (full saturation). 
     </p>
     <p>
-    The centre shows the resulting RGB colour - the combination of the Red, Green, and Blue light.
+    The centre shows the resulting RGB colour - the combination of the red, green, and blue light.
     </p>
     <p>
-    Some common colour combinations are provided below:
+    Try clicking on the colours below to find out what combination of red, blue and green light they are composed of:
     </p>
     <div id="colour-configs">
-      <button data-preset="preset-red">Red</button>
-      <button data-preset="preset-blue">Blue</button>
-      <button data-preset="preset-green">Green</button>
-      <button data-preset="preset-black">Black</button>
-      <button data-preset="preset-purple">Purple</button>
       <button data-preset="preset-yellow">Yellow</button>
+      <button data-preset="preset-cyan">Cyan</button>
+      <button data-preset="preset-magenta">Magenta</button>
+      <button data-preset="preset-white">White</button>
+      <button data-preset="preset-purple">Purple</button>
+      <button data-preset="preset-pink">Pink</button>
       <button data-preset="preset-turquoise">Turquoise</button>
       <button data-preset="preset-orange">Orange</button>
     </div>
